@@ -10,13 +10,14 @@ before_install:
   - go version
   - go get github.com/mattn/goveralls
   - go get golang.org/x/tools/cmd/cover
+  - go get github.com/pierrre/gotestcover
 
 install:
   - go get -t -d -v ./...
   - go build -v ./...
 
 script:
-  - sh test_cover.sh
+  - gotestcover -v -covermode=count -coverprofile=.profile.cov ./...
 
 after_successs:
   - goveralls -coverprofile=.profile.cov -repotoken $COVERALLS_TOKEN
