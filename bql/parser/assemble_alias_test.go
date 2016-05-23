@@ -28,7 +28,7 @@ func TestAssembleAlias(t *testing.T) {
 					Convey("And it contains the previous data", func() {
 						comp := top.comp.(AliasAST)
 						So(comp.Expr, ShouldResemble, NumericLiteral{2})
-						So(comp.Alias, ShouldEqual, "out")
+						So(comp.Alias, ShouldEqual, "this should be out")
 					})
 				})
 			})
